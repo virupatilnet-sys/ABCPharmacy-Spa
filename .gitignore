@@ -1,0 +1,5 @@
+bin/
+obj/
+.vs/
+TestResults/
+src/PharmacySpa.Api/Data/pharmacy-data.json.tmp

@@ -1,0 +1,58 @@
+{
+  "Medicines": [
+    {
+      "Id": "a1e09ac8-0e24-4e3d-a109-000000000001",
+      "FullName": "Amoxicillin 500mg",
+      "Notes": "Prescription antibiotic.",
+      "ExpiryDate": "2026-09-05",
+      "Quantity": 32,
+      "Price": 8.5,
+      "Brand": "Cipla"
+    },
+    {
+      "Id": "a1e09ac8-0e24-4e3d-a109-000000000002",
+      "FullName": "Cetirizine 10mg",
+      "Notes": "Once-daily.",
+      "ExpiryDate": "2027-03-12",
+      "Quantity": 7,
+      "Price": 4.25,
+      "Brand": "Sun Pharma"
+    },
+    {
+      "Id": "a1e09ac8-0e24-4e3d-a109-000000000003",
+      "FullName": "Paracetamol 500mg",
+      "Notes": "Recommended daily dosage.",
+      "ExpiryDate": "2027-11-30",
+      "Quantity": 117,
+      "Price": 2.75,
+      "Brand": "Mankind Pharma"
+    },
+    {
+      "Id": "506e1c33-72a4-478a-b27e-f7390e0a75ef",
+      "FullName": "Volini",
+      "Notes": "Pain relief",
+      "ExpiryDate": "2027-06-29",
+      "Quantity": 93,
+      "Price": 146,
+      "Brand": "Sun Pharma"
+    }
+  ],
+  "Sales": [
+    {
+      "Id": "d9015d11-109c-414f-956a-6184478bf3d7",
+      "MedicineId": "506e1c33-72a4-478a-b27e-f7390e0a75ef",
+      "MedicineName": "Volini",
+      "Quantity": 7,
+      "UnitPrice": 146,
+      "SoldAtUtc": "2026-08-18T17:44:28.7393464+00:00"
+    },
+    {
+      "Id": "845a0e41-9bbb-485a-98ec-38ad0f958bce",
+      "MedicineId": "a1e09ac8-0e24-4e3d-a109-000000000003",
+      "MedicineName": "Paracetamol 500mg",
+      "Quantity": 3,
+      "UnitPrice": 2.75,
+      "SoldAtUtc": "2026-08-18T17:44:38.3878276+00:00"
+    }
+  ]
+}

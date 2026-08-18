@@ -1,0 +1,26 @@
+{
+  "openapi": "3.0.3",
+  "info": { "title": "ABC Pharmacy API", "version": "v1", "description": "JSON-file-backed medicine inventory and sales API." },
+  "paths": {
+    "/api/medicines": {
+      "get": { "summary": "List or search medicines", "parameters": [{ "name": "search", "in": "query", "schema": { "type": "string" } }], "responses": { "200": { "description": "Medicine list" } } },
+      "post": { "summary": "Create medicine", "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/MedicineInput" } } } }, "responses": { "201": { "description": "Created" }, "400": { "description": "Validation failure" } } }
+    },
+    "/api/medicines/{id}": {
+      "get": { "summary": "Get medicine", "parameters": [{ "$ref": "#/components/parameters/Id" }], "responses": { "200": { "description": "Medicine" }, "404": { "description": "Not found" } } },
+      "put": { "summary": "Update medicine", "parameters": [{ "$ref": "#/components/parameters/Id" }], "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/MedicineInput" } } } }, "responses": { "200": { "description": "Updated" }, "404": { "description": "Not found" } } },
+      "delete": { "summary": "Delete medicine", "parameters": [{ "$ref": "#/components/parameters/Id" }], "responses": { "204": { "description": "Deleted" }, "404": { "description": "Not found" } } }
+    },
+    "/api/sales": {
+      "get": { "summary": "List sales", "responses": { "200": { "description": "Sales list" } } },
+      "post": { "summary": "Record sale and decrement stock", "requestBody": { "required": true, "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SaleInput" } } } }, "responses": { "200": { "description": "Sale recorded" }, "400": { "description": "Insufficient stock or missing medicine" } } }
+    }
+  },
+  "components": {
+    "parameters": { "Id": { "name": "id", "in": "path", "required": true, "schema": { "type": "string", "format": "uuid" } } },
+    "schemas": {
+      "MedicineInput": { "type": "object", "required": ["fullName", "expiryDate", "quantity", "price", "brand"], "properties": { "fullName": { "type": "string" }, "notes": { "type": "string" }, "expiryDate": { "type": "string", "format": "date" }, "quantity": { "type": "integer", "minimum": 0 }, "price": { "type": "number", "format": "decimal", "minimum": 0 }, "brand": { "type": "string" } } },
+      "SaleInput": { "type": "object", "required": ["medicineId", "quantity"], "properties": { "medicineId": { "type": "string", "format": "uuid" }, "quantity": { "type": "integer", "minimum": 1 } } }
+    }
+  }
+}

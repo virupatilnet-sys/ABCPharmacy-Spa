@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>ABC Pharmacy</title>
+    <link rel="stylesheet" href="site.css">
+</head>
+<body>
+    <header><h1>ABC Pharmacy</h1><p>Medicine inventory and sales</p></header><main>
+        <section class="toolbar"><input id="search" placeholder="Search medicine name" aria-label="Search medicine name"><button id="newMedicine">Add medicine</button></section>
+        <aside class="legend"><span class="expiry">Expiry within 30 days</span><span class="low-stock">Stock below 10</span></aside>
+        <p id="message" role="status"></p>
+        <section class="card">
+            <table><thead><tr><th>Name</th><th>Expiry date</th><th>Quantity</th><th>Price</th><th>Brand</th><th>Actions</th></tr></thead><tbody id="medicineRows"></tbody></table>
+        </section>
+        <section class="card">
+            <h2>Recent sales</h2>
+            <table>
+                <thead><tr><th>Sold at</th><th>Medicine</th><th>Quantity</th><th>Unit price</th><th>Total</th></tr></thead>
+                <tbody id="saleRows"></tbody>
+            </table>
+        </section>
+    </main>
+    <dialog id="medicineDialog">
+        <form id="medicineForm" method="dialog">
+            <h2 id="formTitle">Add medicine</h2>
+            <input type="hidden" id="medicineId">
+            <label>Full name<input id="fullName" required maxlength="150"></label>
+            <label>Brand<input id="brand" required maxlength="100"></label>
+            <label>Notes<textarea id="notes" maxlength="1000"></textarea></label>
+            <label>Expiry date<input id="expiryDate" type="date" required></label>
+            <label>Quantity<input id="quantity" type="number" min="0" required></label>
+            <label>Price<input id="price" type="number" min="0" step="0.01" required></label>
+            <menu>
+                <button type="button" id="cancelMedicine">Cancel</button>
+                <button>Save</button>
+            </menu>
+        </form>
+    </dialog>
+    <dialog id="saleDialog">
+        <form id="saleForm" method="dialog">
+            <h2>Record sale</h2><p id="saleMedicine"></p><input type="hidden" id="saleMedicineId"><label>Quantity to sell<input id="saleQuantity" type="number" min="1" required></label><menu>
+                <button type="button" id="cancelSale">Cancel</button>
+                <button>Record sale</button>
+            </menu>
+        </form>
+    </dialog>
+    <script src="app.js"></script>
+</body>
+</html>
